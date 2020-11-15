@@ -1,0 +1,273 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scene_buy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fonts/font_side_btn.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scene_produce.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene_sell.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fonts/LEMONMILK-Regular.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://SideBar.gd" type="Script" id=6]
+[ext_resource path="res://main.gd" type="Script" id=7]
+[ext_resource path="res://MoneyLabel.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="InputEventAction" id=2]
+action = "first_tab"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "second_tab"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "third_tab"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="CanvasLayerBuy" type="CanvasLayer" parent="."]
+
+[node name="Buy Panel" parent="CanvasLayerBuy" instance=ExtResource( 1 )]
+
+[node name="CanvasLayerProduce" type="CanvasLayer" parent="."]
+
+[node name="Produce Panel" parent="CanvasLayerProduce" instance=ExtResource( 3 )]
+visible = false
+
+[node name="CanvasLayerSell" type="CanvasLayer" parent="."]
+
+[node name="Sell Panel" parent="CanvasLayerSell" instance=ExtResource( 4 )]
+visible = false
+
+[node name="CanvasLayerHUD" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="Control" parent="CanvasLayerHUD"]
+anchor_right = 1.0
+anchor_bottom = 0.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerHUD/TopBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineBot" type="ColorRect" parent="CanvasLayerHUD/TopBar"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_right = 0.00012207
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineLeft" type="ColorRect" parent="CanvasLayerHUD/TopBar"]
+anchor_bottom = 1.0
+margin_right = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineRight" type="ColorRect" parent="CanvasLayerHUD/TopBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = 0.00012207
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineTop" type="ColorRect" parent="CanvasLayerHUD/TopBar"]
+anchor_right = 1.0
+margin_right = 0.00012207
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayerHUD/TopBar"]
+anchor_left = 0.05
+anchor_right = 0.15
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "1337228"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SideBar" type="Control" parent="CanvasLayerHUD"]
+anchor_top = 0.05
+anchor_bottom = 1.0
+margin_left = 1820.0
+margin_right = 1920.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="CanvasLayerHUD/SideBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn1" type="Button" parent="CanvasLayerHUD/SideBar"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+hint_tooltip = "[1]"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+button_mask = 3
+enabled_focus_mode = 0
+shortcut = SubResource( 3 )
+text = "1"
+flat = true
+
+[node name="btn2" type="Button" parent="CanvasLayerHUD/SideBar"]
+margin_top = 100.0
+margin_right = 100.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 100 )
+hint_tooltip = "[2]"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+shortcut_in_tooltip = false
+button_mask = 3
+enabled_focus_mode = 0
+shortcut = SubResource( 5 )
+text = "2"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn3" type="Button" parent="CanvasLayerHUD/SideBar"]
+margin_top = 200.0
+margin_right = 100.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 100, 100 )
+hint_tooltip = "[3]"
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+button_mask = 3
+enabled_focus_mode = 0
+shortcut = SubResource( 7 )
+text = "3"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Visuals" type="Control" parent="CanvasLayerHUD/SideBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineTop" type="ColorRect" parent="CanvasLayerHUD/SideBar/Visuals"]
+anchor_right = 1.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineBot" type="ColorRect" parent="CanvasLayerHUD/SideBar/Visuals"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineLeft" type="ColorRect" parent="CanvasLayerHUD/SideBar/Visuals"]
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineRight" type="ColorRect" parent="CanvasLayerHUD/SideBar/Visuals"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Frame" type="Control" parent="CanvasLayerHUD/SideBar"]
+margin_right = 100.0
+margin_bottom = 100.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineTop" type="ColorRect" parent="CanvasLayerHUD/SideBar/Frame"]
+anchor_right = 1.0
+margin_top = -1.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineBot" type="ColorRect" parent="CanvasLayerHUD/SideBar/Frame"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="CanvasLayerHUD/SideBar/btn1" to="CanvasLayerHUD/SideBar" method="_on_btn1_pressed"]
+[connection signal="pressed" from="CanvasLayerHUD/SideBar/btn2" to="CanvasLayerHUD/SideBar" method="_on_btn2_pressed"]
+[connection signal="pressed" from="CanvasLayerHUD/SideBar/btn3" to="CanvasLayerHUD/SideBar" method="_on_btn3_pressed"]
+[connection signal="tween_all_completed" from="Tween" to="CanvasLayerHUD/SideBar" method="_on_Tween_tween_all_completed"]

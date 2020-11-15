@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/monofonto.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Checkout list.gd" type="Script" id=3]
+[ext_resource path="res://Properties/Button theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1462.0
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Visuals" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="Visuals"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line Bot" type="ColorRect" parent="Visuals"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line Top" type="ColorRect" parent="Visuals"]
+anchor_right = 1.0
+margin_bottom = 4.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Line Top2" type="ColorRect" parent="Visuals"]
+anchor_top = 0.915
+anchor_right = 1.0
+anchor_bottom = 0.915
+margin_top = -2.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line Right" type="ColorRect" parent="Visuals"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Line Left" type="ColorRect" parent="Visuals"]
+anchor_bottom = 1.0
+margin_right = 4.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Checkout button" type="Button" parent="."]
+anchor_top = 0.915
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 2.0
+margin_right = -4.0
+margin_bottom = -3.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "CHECKOUT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Total label" type="RichTextLabel" parent="."]
+anchor_top = 0.83
+anchor_right = 1.0
+anchor_bottom = 0.915
+margin_left = 28.0
+margin_right = -4.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Total: 215.36[color=green]$[/color]"
+text = "Total: 215.36$"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Checkout button" to="." method="_on_Checkout_button_pressed"]

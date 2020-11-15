@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Checkout list.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Plate_buy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene_buy.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -100.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Metal" parent="." instance=ExtResource( 2 )]
+anchor_right = 0.25
+anchor_bottom = 0.333
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Metal"
+price = 2.28
+
+[node name="Wood" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.333
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Wood"
+price = 6.66
+
+[node name="Plastic" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.333
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 3.0
+margin_bottom = 2.0
+res_name = "Plastic"
+price = 4.2
+
+[node name="Cloth" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.333
+anchor_right = 0.375
+anchor_bottom = 0.666
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Cloth"
+price = 9.11
+
+[node name="Rubber" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.375
+anchor_top = 0.333
+anchor_right = 0.75
+anchor_bottom = 0.666
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Rubber"
+price = 4.07
+
+[node name="Concrete" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.666
+anchor_right = 0.375
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Concrete"
+price = 3.22
+
+[node name="Tarpaper" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.375
+anchor_top = 0.666
+anchor_right = 0.75
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+res_name = "Tarpaper"
+price = 14.88
+
+[node name="Checkout list" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.75
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0

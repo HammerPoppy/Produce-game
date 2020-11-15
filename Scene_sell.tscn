@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Properties/Button theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/mono.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scene_sell.gd" type="Script" id=3]
+
+[node name="Sell Panel" type="Control"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -100.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Visuals" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LineTop" type="ColorRect" parent="Visuals"]
+anchor_right = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="LineBot" type="ColorRect" parent="Visuals"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="LineLeft" type="ColorRect" parent="Visuals"]
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="LineRight" type="ColorRect" parent="Visuals"]
+anchor_right = 1.0
+margin_top = -2.0
+margin_bottom = 2.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.3
+anchor_top = 0.4
+anchor_right = 0.7
+anchor_bottom = 0.6
+
+[node name="Option button" type="OptionButton" parent="Control"]
+anchor_right = 0.5
+anchor_bottom = 0.5
+theme = ExtResource( 1 )
+text = "Metal"
+align = 1
+items = [ "Metal", null, false, 0, null, "Plastic", null, false, 1, null, "Wood", null, false, 2, null ]
+selected = 0
+
+[node name="Summary label" type="RichTextLabel" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.5
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]10 x 0.228 = 2.28[color=green]$[/color][/center]"
+text = "10 x 0.228 = 2.28$"
+
+[node name="Sell btn" type="Button" parent="Control"]
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+text = "Sell"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount slider" type="HSlider" parent="Control"]
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 1.0
+margin_right = -20.0
+max_value = 9.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="visibility_changed" from="." to="." method="_on_Sell_Panel_visibility_changed"]
+[connection signal="item_selected" from="Control/Option button" to="." method="_on_Option_button_item_selected"]
+[connection signal="pressed" from="Control/Sell btn" to="." method="_on_Sell_btn_pressed"]
+[connection signal="value_changed" from="Control/Amount slider" to="." method="_on_Amount_slider_value_changed"]

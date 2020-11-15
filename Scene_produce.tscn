@@ -1,0 +1,235 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Plate_produce.tscn" type="PackedScene" id=1]
+
+[node name="Produce Panel" type="Control"]
+anchor_top = 0.05
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.160784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="ScrollContainer"]
+margin_right = 1807.0
+margin_bottom = 2565.0
+rect_min_size = Vector2( 1807, 2565 )
+
+[node name="Parts" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_right = 0.25
+anchor_bottom = 0.2
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Parts"
+rcp_metal = 1
+rcp_work = 2
+
+[node name="Rebar" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Rebar"
+rcp_metal = 2
+rcp_work = 2
+
+[node name="Carpet" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.2
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Carpet"
+rcp_cloth = 4
+rcp_work = 3
+
+[node name="Electronics" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.75
+anchor_bottom = 0.2
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Electronics"
+rcp_metal = 2
+rcp_plastic = 1
+rcp_work = 3
+
+[node name="Sofa" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_top = 0.2
+anchor_right = 0.25
+anchor_bottom = 0.4
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Sofa"
+rcp_wood = 3
+rcp_cloth = 3
+rcp_work = 5
+
+[node name="Furniture" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.25
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Furniture"
+rcp_plastic = 2
+rcp_rubber = 2
+rcp_wood = 2
+rcp_work = 4
+
+[node name="Roof tile" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.75
+anchor_bottom = 0.4
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Roof tile"
+rcp_rubber = 2
+rcp_wood = 2
+rcp_tarpaper = 3
+rcp_work = 5
+
+[node name="Wall tile" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.75
+anchor_top = 0.2
+anchor_bottom = 0.4
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Wall tile"
+rcp_concrete = 4
+rcp_rebar = 3
+rcp_work = 3
+
+[node name="Door" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_top = 0.4
+anchor_right = 0.25
+anchor_bottom = 0.6
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Door"
+rcp_wood = 3
+rcp_parts = 1
+rcp_work = 5
+
+[node name="Window" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.25
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Window"
+rcp_plastic = 3
+rcp_rubber = 1
+rcp_parts = 1
+rcp_work = 6
+
+[node name="Boiler" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.75
+anchor_bottom = 0.6
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Boiler"
+rcp_metal = 3
+rcp_rubber = 2
+rcp_electronics = 1
+rcp_work = 7
+
+[node name="Device" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.75
+anchor_top = 0.4
+anchor_bottom = 0.6
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Device"
+rcp_plastic = 2
+rcp_electronics = 3
+rcp_work = 6
+
+[node name="Boiler room" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_top = 0.6
+anchor_right = 0.25
+anchor_bottom = 0.83
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Boiler room"
+rcp_wall_tile = 4
+rcp_door = 1
+rcp_boiler = 1
+rcp_work = 8
+
+[node name="Kitchen" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.25
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.83
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Kitchen"
+rcp_furniture = 3
+rcp_wall_tile = 4
+rcp_door = 1
+rcp_device = 3
+rcp_work = 10
+
+[node name="Living room" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.75
+anchor_bottom = 0.83
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Living room"
+rcp_carpet = 1
+rcp_sofa = 1
+rcp_furniture = 2
+rcp_wall_tile = 4
+rcp_door = 1
+rcp_device = 2
+rcp_work = 12
+
+[node name="Building" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.75
+anchor_top = 0.6
+anchor_bottom = 0.83
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "Building"
+rcp_roof_tile = 6
+rcp_wall_tile = 24
+rcp_window = 4
+rcp_work = 30
+
+[node name="House" parent="ScrollContainer/Control" instance=ExtResource( 1 )]
+anchor_left = 0.373
+anchor_top = 0.83
+anchor_right = 0.627
+margin_right = 0.0
+margin_bottom = 0.0
+item_name = "House"
+rcp_boiler_room = 1
+rcp_kitchen = 1
+rcp_living_room = 2
+rcp_building = 1

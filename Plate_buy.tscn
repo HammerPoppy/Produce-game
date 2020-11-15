@@ -1,0 +1,185 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Fonts/LEMONMILK-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Properties/Button theme.tres" type="Theme" id=2]
+[ext_resource path="res://Plate_buy.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/mono.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/monofonto.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1440.0
+margin_bottom = -720.0
+rect_clip_content = true
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Resource name label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.4
+custom_fonts/font = SubResource( 1 )
+text = "Resource"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price label" type="RichTextLabel" parent="."]
+anchor_top = 0.41
+anchor_right = 1.0
+anchor_bottom = 0.5
+rect_clip_content = false
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]0.228[color=green]$[/color][/center]"
+text = "0.228$"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
+custom_fonts/font = ExtResource( 5 )
+text = "Stock 1000"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bot line" type="Control" parent="."]
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Buy amount label" type="Label" parent="Bot line"]
+anchor_left = 0.05
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 2 )
+text = " 21 x 0.288$
+   = 132.45$"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount controls" type="Control" parent="Bot line"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sub" type="Button" parent="Bot line/Amount controls"]
+anchor_right = 0.5
+anchor_bottom = 1.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "-"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Add" type="Button" parent="Bot line/Amount controls"]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+text = "+"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LineTop" type="ColorRect" parent="Bot line"]
+anchor_right = 1.0
+margin_top = -4.0
+margin_right = 3.05176e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineTop" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 4.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineRight" type="ColorRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineLeft" type="ColorRect" parent="."]
+anchor_bottom = 1.0
+margin_right = 4.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineBot" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -4.0
+margin_right = 3.05176e-05
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="ready" from="Resource name label" to="." method="_on_Resource_name_label_ready"]
+[connection signal="ready" from="Price label" to="." method="_on_Price_label_ready"]
+[connection signal="ready" from="Bot line/Buy amount label" to="." method="_on_Buy_amount_label_ready"]
+[connection signal="pressed" from="Bot line/Amount controls/Sub" to="." method="_on_Sub_pressed"]
+[connection signal="pressed" from="Bot line/Amount controls/Add" to="." method="_on_Add_pressed"]
