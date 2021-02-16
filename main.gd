@@ -15,13 +15,19 @@ var cur_scene = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	OS.window_size = Vector2(1280, 720)
+	
 	layers = [$CanvasLayerBuy, $CanvasLayerProduce, $CanvasLayerSell]
 	scenes = [$"CanvasLayerBuy/Buy Panel", $"CanvasLayerProduce/Produce Panel", $"CanvasLayerSell/Sell Panel"]
 	tween = get_node("Tween")
+	
 	SignalManager.connect("first_tab", self, "_on_SideBar_first_tab")
 	SignalManager.connect("second_tab", self, "_on_SideBar_second_tab")
 	SignalManager.connect("third_tab", self, "_on_SideBar_third_tab")
 
+func _input(event):
+	if event.is_action_pressed("toggle_fullscreen"):
+		_on_Toggle_Fullscreen()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -144,3 +150,6 @@ func _query_sidebar_frame_slide(position: int):
 	tween.interpolate_property($CanvasLayerHUD/SideBar/Frame,
 		"rect_position", $CanvasLayerHUD/SideBar/Frame.rect_position, Vector2(0, (position - 1) * 100),
 		0.25, Tween.TRANS_EXPO, Tween.EASE_IN_OUT, 0)
+
+func _on_Toggle_Fullscreen():
+	OS.window_fullscreen = !OS.window_fullscreen

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scene_buy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/font_side_btn.tres" type="DynamicFont" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://Fonts/LEMONMILK-Regular.otf" type="DynamicFontData" id=5]
 [ext_resource path="res://SideBar.gd" type="Script" id=6]
 [ext_resource path="res://main.gd" type="Script" id=7]
+[ext_resource path="res://Properties/Button style hover.tres" type="StyleBox" id=8]
 [ext_resource path="res://MoneyLabel.gd" type="Script" id=9]
+[ext_resource path="res://Properties/Button style normal.tres" type="StyleBox" id=10]
+[ext_resource path="res://Fonts/font_fullscreen_btn.tres" type="DynamicFont" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -15,23 +18,64 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
-[sub_resource type="InputEventAction" id=2]
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.396078, 0.258824, 0.466667, 1 )
+
+[sub_resource type="Theme" id=4]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 11 )
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 8 )
+Button/styles/normal = ExtResource( 10 )
+Button/styles/pressed = ExtResource( 10 )
+PopupMenu/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/colors/font_color_accel = Color( 0.7, 0.7, 0.7, 0.8 )
+PopupMenu/colors/font_color_disabled = Color( 0.4, 0.4, 0.4, 0.8 )
+PopupMenu/colors/font_color_hover = Color( 0.88, 0.88, 0.88, 1 )
+PopupMenu/constants/hseparation = 4
+PopupMenu/constants/vseparation = 4
+PopupMenu/fonts/font = SubResource( 2 )
+PopupMenu/icons/checked = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/unchecked = null
+PopupMenu/styles/hover = ExtResource( 8 )
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource( 3 )
+PopupMenu/styles/panel_disabled = null
+PopupMenu/styles/separator = ExtResource( 8 )
+
+[sub_resource type="InputEventAction" id=5]
 action = "first_tab"
 
-[sub_resource type="ShortCut" id=3]
-shortcut = SubResource( 2 )
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
 
-[sub_resource type="InputEventAction" id=4]
+[sub_resource type="InputEventAction" id=7]
 action = "second_tab"
 
-[sub_resource type="ShortCut" id=5]
-shortcut = SubResource( 4 )
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
 
-[sub_resource type="InputEventAction" id=6]
+[sub_resource type="InputEventAction" id=9]
 action = "third_tab"
 
-[sub_resource type="ShortCut" id=7]
-shortcut = SubResource( 6 )
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
@@ -119,6 +163,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ToggleFullscreenBtn" type="Button" parent="CanvasLayerHUD/TopBar"]
+anchor_left = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 10.0
+margin_right = -20.0
+margin_bottom = -10.0
+theme = SubResource( 4 )
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SideBar" type="Control" parent="CanvasLayerHUD"]
 anchor_top = 0.05
 anchor_bottom = 1.0
@@ -149,9 +207,12 @@ shortcut_in_tooltip = false
 pressed = true
 button_mask = 3
 enabled_focus_mode = 0
-shortcut = SubResource( 3 )
+shortcut = SubResource( 6 )
 text = "1"
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="btn2" type="Button" parent="CanvasLayerHUD/SideBar"]
 margin_top = 100.0
@@ -166,7 +227,7 @@ toggle_mode = true
 shortcut_in_tooltip = false
 button_mask = 3
 enabled_focus_mode = 0
-shortcut = SubResource( 5 )
+shortcut = SubResource( 8 )
 text = "2"
 flat = true
 __meta__ = {
@@ -187,7 +248,7 @@ shortcut_in_tooltip = false
 pressed = true
 button_mask = 3
 enabled_focus_mode = 0
-shortcut = SubResource( 7 )
+shortcut = SubResource( 10 )
 text = "3"
 flat = true
 __meta__ = {
@@ -267,6 +328,7 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+[connection signal="pressed" from="CanvasLayerHUD/TopBar/ToggleFullscreenBtn" to="." method="_on_Toggle_Fullscreen"]
 [connection signal="pressed" from="CanvasLayerHUD/SideBar/btn1" to="CanvasLayerHUD/SideBar" method="_on_btn1_pressed"]
 [connection signal="pressed" from="CanvasLayerHUD/SideBar/btn2" to="CanvasLayerHUD/SideBar" method="_on_btn2_pressed"]
 [connection signal="pressed" from="CanvasLayerHUD/SideBar/btn3" to="CanvasLayerHUD/SideBar" method="_on_btn3_pressed"]
