@@ -99,7 +99,7 @@ func update_recipe_label():
 	for i in range(0, vars.res_names.size()):
 		if(res_required[i] != 0):
 			var res_line = vars.res_names[i]
-			for i in range(0, (offset - res_line.length())):
+			for j in range(0, (offset - res_line.length())):
 				res_line += " "
 			
 			cur_text += res_line
@@ -113,7 +113,7 @@ func update_recipe_label():
 	for i in range(0, vars.items_names.size()):
 		if(item_required[i] != 0):
 			var item_line = vars.items_names[i]
-			for i in range(0, (offset - item_line.length())):
+			for j in range(0, (offset - item_line.length())):
 				item_line += " "
 			
 			cur_text += item_line
