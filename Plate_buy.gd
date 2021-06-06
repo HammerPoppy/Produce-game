@@ -26,17 +26,6 @@ func _process(delta):
 	# helps with displaying bug MAGIC DONT TOUCH
 	_on_Price_label_ready()
 
-func _on_Add_pressed():
-	sound_player.play()
-	buy_amount += 1
-	_buy_amount_changed()
-
-func _on_Sub_pressed():
-	sound_player.play()
-	if(buy_amount > 0):
-		buy_amount -= 1
-		_buy_amount_changed()
-
 func _buy_amount_changed():
 	_update_main_label()
 	SignalManager.emit_signal("buy_amount_change")
@@ -79,3 +68,16 @@ func _on_Resource_name_label_ready():
 
 func _on_Price_label_ready():
 	$"Price label".bbcode_text = "[center]" + str(price) + "[color=green]$[/color][/center]"
+
+
+func _on_Add_button_down():
+	sound_player.play()
+	buy_amount += 1
+	_buy_amount_changed()
+
+
+func _on_Sub_button_down():
+	sound_player.play()
+	if(buy_amount > 0):
+		buy_amount -= 1
+		_buy_amount_changed()

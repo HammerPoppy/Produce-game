@@ -188,5 +188,7 @@ mix_target = 2
 [connection signal="ready" from="Resource name label" to="." method="_on_Resource_name_label_ready"]
 [connection signal="ready" from="Price label" to="." method="_on_Price_label_ready"]
 [connection signal="ready" from="Bot line/Buy amount label" to="." method="_on_Buy_amount_label_ready"]
+[connection signal="button_down" from="Bot line/Amount controls/Sub" to="." method="_on_Sub_button_down"]
 [connection signal="pressed" from="Bot line/Amount controls/Sub" to="." method="_on_Sub_pressed"]
+[connection signal="button_down" from="Bot line/Amount controls/Add" to="." method="_on_Add_button_down"]
 [connection signal="pressed" from="Bot line/Amount controls/Add" to="." method="_on_Add_pressed"]
