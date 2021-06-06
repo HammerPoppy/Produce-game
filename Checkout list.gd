@@ -2,12 +2,15 @@ extends Control
 
 var total = 0
 
+var sound_player
+
 var vars
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vars = get_node("/root/GlobalVars")
-
+	sound_player = get_node("CheckoutSoundPlayer")
+ 
 
 func redraw(items):
 	var plates = _remove_zero_amounted(items)
@@ -67,5 +70,6 @@ func _on_Checkout_button_pressed():
 	if (total < vars.money):
 		SignalManager.emit_signal("checkout")
 		SignalManager.emit_signal("res_changed")
+		sound_player.play()
 	else:
 		pass
