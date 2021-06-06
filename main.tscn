@@ -12,7 +12,7 @@
 [ext_resource path="res://Properties/Button style normal.tres" type="StyleBox" id=10]
 [ext_resource path="res://Fonts/font_fullscreen_btn.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Sounds/perc 93.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/tick 2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/perc 2.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
