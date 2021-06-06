@@ -103,5 +103,6 @@ func _on_Option_button_toggled(button_pressed):
 
 
 func _on_Amount_slider_value_changed(value):
-	slidertick_sound_player.play()
+	if(value != 0):
+		slidertick_sound_player.play()
 	_update_label()
