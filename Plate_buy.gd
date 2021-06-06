@@ -8,6 +8,8 @@ var res_id
 
 var init_res_amount = 0
 
+var sound_player
+
 var vars
 
 func get_class(): return "plate_buy"
@@ -15,6 +17,8 @@ func get_class(): return "plate_buy"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalManager.connect("checkout", self, "_on_checkout")
+	
+	sound_player = get_node("ButtonSoundPlayer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,10 +27,12 @@ func _process(delta):
 	_on_Price_label_ready()
 
 func _on_Add_pressed():
+	sound_player.play()
 	buy_amount += 1
 	_buy_amount_changed()
 
 func _on_Sub_pressed():
+	sound_player.play()
 	if(buy_amount > 0):
 		buy_amount -= 1
 		_buy_amount_changed()
