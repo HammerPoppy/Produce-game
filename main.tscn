@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scene_buy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/font_side_btn.tres" type="DynamicFont" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Properties/Button style normal.tres" type="StyleBox" id=10]
 [ext_resource path="res://Fonts/font_fullscreen_btn.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Sounds/perc 93.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/tick 2.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -256,6 +257,11 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SidebarButtonsSoundPlayer" type="AudioStreamPlayer" parent="CanvasLayerHUD/SideBar"]
+stream = ExtResource( 13 )
+volume_db = -5.0
+mix_target = 2
 
 [node name="Visuals" type="Control" parent="CanvasLayerHUD/SideBar"]
 anchor_right = 1.0

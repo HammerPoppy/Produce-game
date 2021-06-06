@@ -4,6 +4,8 @@ var btn1
 var btn2
 var btn3
 
+var sound_player
+
 var cur_tab = 1
 
 
@@ -12,6 +14,8 @@ func _ready():
 	btn1 = get_node("btn1")
 	btn2 = get_node("btn2")
 	btn3 = get_node("btn3")
+	
+	sound_player = get_node("SidebarButtonsSoundPlayer")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +24,7 @@ func _ready():
 
 
 func _on_btn1_pressed():
+	sound_player.play()
 	cur_tab = 1
 	btn1.disabled = true
 	btn2.disabled = true
@@ -28,6 +33,7 @@ func _on_btn1_pressed():
 
 
 func _on_btn2_pressed():
+	sound_player.play()
 	cur_tab = 2
 	btn1.disabled = true
 	btn2.disabled = true
@@ -36,6 +42,7 @@ func _on_btn2_pressed():
 
 
 func _on_btn3_pressed():
+	sound_player.play()
 	cur_tab = 3
 	btn1.disabled = true
 	btn2.disabled = true
