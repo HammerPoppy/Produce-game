@@ -130,7 +130,7 @@ func update_recipe_label():
 	$"Recipe/Recipe label".bbcode_text = cur_text
 
 
-func _on_Produce_button_pressed():
+func _on_Produce_button_button_down():
 	if (!res_complete):
 		for i in range (0, res_required.size()):
 			if (res_required[i] != 0):

@@ -190,5 +190,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="ready" from="Product name label" to="." method="_on_Product_name_label_ready"]
+[connection signal="button_down" from="Bottom lane/Produce button" to="." method="_on_Produce_button_button_down"]
 [connection signal="pressed" from="Bottom lane/Produce button" to="." method="_on_Produce_button_pressed"]
 [connection signal="ready" from="Progress bar" to="." method="_on_Progress_bar_ready"]
