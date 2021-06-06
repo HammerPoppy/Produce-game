@@ -171,6 +171,7 @@ margin_left = 20.0
 margin_top = 10.0
 margin_right = -20.0
 margin_bottom = -10.0
+hint_tooltip = "[F]"
 theme = SubResource( 4 )
 text = "Fullscreen"
 __meta__ = {
