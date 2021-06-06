@@ -153,3 +153,4 @@ func _query_sidebar_frame_slide(position: int):
 
 func _on_Toggle_Fullscreen():
 	OS.window_fullscreen = !OS.window_fullscreen
+	get_node("ButtonSoundPlayer").play()
