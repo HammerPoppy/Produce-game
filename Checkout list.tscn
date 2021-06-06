@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/monofonto.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Checkout list.gd" type="Script" id=3]
 [ext_resource path="res://Properties/Button theme.tres" type="Theme" id=4]
 [ext_resource path="res://Sounds/40052174_money-coins-in-hand-03 short.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/perc 24.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -108,6 +109,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckoutSoundPlayer" type="AudioStreamPlayer" parent="."]
+[node name="CheckoutSuccessSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="CheckoutDeclineSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+mix_target = 2
 [connection signal="pressed" from="Checkout button" to="." method="_on_Checkout_button_pressed"]

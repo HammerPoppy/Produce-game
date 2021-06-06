@@ -3,13 +3,15 @@ extends Control
 var total = 0
 
 var sound_player
+var decline_sound_player
 
 var vars
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vars = get_node("/root/GlobalVars")
-	sound_player = get_node("CheckoutSoundPlayer")
+	sound_player = get_node("CheckoutSuccessSoundPlayer")
+	decline_sound_player = get_node("CheckoutDeclineSoundPlayer")
  
 
 func redraw(items):
@@ -72,4 +74,4 @@ func _on_Checkout_button_pressed():
 		SignalManager.emit_signal("res_changed")
 		sound_player.play()
 	else:
-		pass
+		decline_sound_player.play()
