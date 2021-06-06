@@ -47,6 +47,10 @@ var item_complete: bool = false
 var work_required = 1
 var work_current =  0
 
+var produce_sound_player
+var done_sound_player
+var decline_sound_player
+
 var vars
 var prog_bar
 
@@ -54,6 +58,10 @@ var prog_bar
 func _ready():
 	vars = get_node("/root/GlobalVars")
 	prog_bar = $"Progress bar"
+	
+	produce_sound_player = get_node("Bottom lane/ProduceSoundPlayer")
+	done_sound_player = get_node("Bottom lane/DoneSoundPlayer")
+	decline_sound_player = get_node("Bottom lane/DeclineSoundPlayer")
 	
 	update_recipe_label()
 	_update_price_label()
@@ -136,6 +144,7 @@ func _on_Produce_button_button_down():
 			if (res_required[i] != 0):
 				if(res_current[i] < res_required[i]):
 					if (vars.res_available[i] > 0):
+						produce_sound_player.play()
 						prog_bar.denied = false
 						prog_bar.activate(1)
 						vars.res_available[i] -= 1
@@ -143,6 +152,7 @@ func _on_Produce_button_button_down():
 						SignalManager.emit_signal("res_changed")
 						return
 					else:
+						decline_sound_player.play()
 						prog_bar.denied = true
 						return
 				else:
@@ -156,6 +166,7 @@ func _on_Produce_button_button_down():
 			if (item_required[i] != 0):
 				if(item_current[i] < item_required[i]):
 					if (vars.items_stock[i] > 0):
+						produce_sound_player.play()
 						prog_bar.denied = false
 						prog_bar.activate(1)
 						vars.items_stock[i] -= 1
@@ -163,6 +174,7 @@ func _on_Produce_button_button_down():
 						SignalManager.emit_signal("item_changed")
 						return
 					else:
+						decline_sound_player.play()
 						prog_bar.denied = true
 						return
 				else:
@@ -173,8 +185,10 @@ func _on_Produce_button_button_down():
 		
 	work_current += 1
 	if (work_current != work_required):
+		produce_sound_player.play()
 		prog_bar.activate(1)
 	else:
+		done_sound_player.play()
 		vars.items_stock[get_item_id()] += 1
 		prog_bar.activate(1)
 		SignalManager.emit_signal("item_changed")
