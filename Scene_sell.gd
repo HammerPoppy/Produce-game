@@ -6,7 +6,9 @@ var amount_slider
 var option_btn
 var summary_label
 
-var sound_player
+var sell_sound_player
+var optionbttn_sound_player
+var slidertick_sound_player
 
 var cur_data
 
@@ -19,7 +21,9 @@ func _ready():
 	option_btn = get_node("Control/Option button")
 	summary_label = get_node("Control/Summary label")
 	
-	sound_player = get_node("SellSoundPlayer")
+	sell_sound_player = get_node("SellSoundPlayer")
+	optionbttn_sound_player = get_node("OptionButtonSoundPlayer")
+	slidertick_sound_player = get_node("SliderTickSoundPlayer")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,7 +84,7 @@ func _on_Sell_btn_pressed():
 			vars.items_stock[cur_data[4]] -= amount
 		
 		if(amount > 0):
-			sound_player.play()
+			sell_sound_player.play()
 		
 		_update_available_data()
 		_update_option()
@@ -90,8 +94,14 @@ func _on_Sell_btn_pressed():
 
 func _on_Option_button_item_selected(id):
 	cur_data = available_data[id]
+	optionbttn_sound_player.play()
 	_update_slider()
+	
+	
+func _on_Option_button_toggled(button_pressed):
+	optionbttn_sound_player.play()
 
 
 func _on_Amount_slider_value_changed(value):
+	slidertick_sound_player.play()
 	_update_label()
