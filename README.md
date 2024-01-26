@@ -1,5 +1,5 @@
 # Produce-game
-My course work. Crafting, ui only game. Middle 2020
+My course work. Crafting themed, ui only game. Middle 2020
 
 Check on <a href="https://hammak.itch.io/produce-the-game">itch.io</a>
 
